@@ -1,0 +1,11 @@
+<view class="user-page">
+  <block>
+    <t-avatar class="avatar-example" shape="round" image="{{image}}" t-class="app-avatar" />
+    <text>{{user_name}}11111</text>
+  </block>
+  <t-cell-group theme="card" t-class="app-cell-group">
+    <t-cell title="单行标题" leftIcon="service" hover arrow />
+    <t-cell title="单行标题" leftIcon="internet" hover arrow />
+    <t-cell title="单行标题" leftIcon="lock-on" hover arrow />
+  </t-cell-group>
+</view>
