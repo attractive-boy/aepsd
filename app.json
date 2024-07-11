@@ -2,7 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/login/login",
-    "pages/user/user"
+    "pages/user/user",
+    "pages/aeupload/aeupload"
   ],
   "window": {
     "navigationBarTextStyle": "black",

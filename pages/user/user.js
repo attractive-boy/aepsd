@@ -12,7 +12,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    const that = this
+    //读取本地存储 设置头像
+    wx.getStorage({
+      key: 'userInfo',
+      success: function (res) {
+        console.log(res.data)
+        that.setData({
+          image: res.data.avatarUrl
+        })
+      },
+      fail: function (res) {
+        console.log(res.data)
+      }
+    })
   },
 
   /**
@@ -62,5 +75,15 @@ Page({
    */
   onShareAppMessage() {
 
+  },
+  onTap(e){
+    console.log(e.currentTarget.dataset.cell)
+    switch(e.currentTarget.dataset.cell){
+      case 'aeupload':
+        wx.navigateTo({
+          url: '../aeupload/aeupload',
+        })
+        break;
+    }
   }
 })

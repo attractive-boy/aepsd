@@ -75,5 +75,7 @@ t-cell-icon {
   width: 100%;
 }
 .app-avatar{
-  object-fit: cover;
+  position: absolute;
+  top:50%;
+  margin-left: 50rpx;
 }
