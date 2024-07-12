@@ -26,8 +26,6 @@ page {
 
 .avatar-example {
   margin-bottom: 20px;
-  width: 100px;
-  height: 100px;
 }
 
 .avatar-example image {
@@ -73,9 +71,4 @@ t-cell-icon {
 }
 .app-cell-group{
   width: 100%;
-}
-.app-avatar{
-  position: absolute;
-  top:50%;
-  margin-left: 50rpx;
 }

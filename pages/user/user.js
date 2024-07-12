@@ -6,6 +6,7 @@ Page({
    */
   data: {
     image: 'https://tdesign.gtimg.com/mobile/demos/avatar1.png',
+    nickName:'微信用户'
   },
 
   /**
@@ -19,7 +20,8 @@ Page({
       success: function (res) {
         console.log(res.data)
         that.setData({
-          image: res.data.avatarUrl
+          image: res.data.avatarUrl,
+          nickName: res.data.nickName
         })
       },
       fail: function (res) {

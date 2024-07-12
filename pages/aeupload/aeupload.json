@@ -3,7 +3,8 @@
     "t-input": "tdesign-miniprogram/input/input",
     "t-button": "tdesign-miniprogram/button/button",
     "t-upload": "tdesign-miniprogram/upload/upload",
-    "t-toast": "tdesign-miniprogram/toast/toast"
+    "t-toast": "tdesign-miniprogram/toast/toast",
+    "t-cell": "tdesign-miniprogram/cell/cell"
   },
   "navigationBarTitleText": "AE上传"
 }

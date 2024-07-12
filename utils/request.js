@@ -1,7 +1,21 @@
-// const baseUrl = 'https://yimingshikong.13w.top/api/' 
-
 const baseUrl = 'https://120.26.241.30/api/' 
+
+const getJWT = () => {
+  try {
+    return wx.getStorageSync('jwt')
+  } catch (e) {
+    console.error('Failed to get JWT from storage:', e)
+    return null
+  }
+}
+
 const request = (url, method, data, header = {}) => {
+  const jwt = getJWT()
+  
+  if (jwt) {
+    header['Authorization'] = `Bearer ${jwt}`
+  }
+
   return new Promise((resolve, reject) => {
     wx.request({
       url: baseUrl + url,
@@ -34,6 +48,12 @@ const get = (url, data, header) => request(url, 'GET', data, header)
 const post = (url, data, header) => request(url, 'POST', data, header)
 
 const uploadFile = (url, filePath, name, formData = {}, header = {}) => {
+  const jwt = getJWT()
+  
+  if (jwt) {
+    header['Authorization'] = `Bearer ${jwt}`
+  }
+
   return new Promise((resolve, reject) => {
     wx.uploadFile({
       url: baseUrl + url,

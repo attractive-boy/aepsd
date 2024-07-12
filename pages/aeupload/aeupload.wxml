@@ -1,34 +1,23 @@
 <view class="container">
   <t-toast id="t-toast" />
-  <form bindsubmit="handleSubmit">
-    <view class="form-item">
       <t-input
-        label="标题"
         placeholder="请输入标题"
         value="{{title}}"
         bind:change="handleTitleInput"
         clearable
       />
-    </view>
-    <view class="form-item">
-      <view class="file-upload">
-        <t-button
-          theme="primary"
-          bind:tap="chooseFile"
-        >
-          选择 AEP 文件
-        </t-button>
-        
-      </view>
+    <t-cell title="选择 AEP 文件">
+      <t-button
+        theme="primary"
+        bind:tap="chooseFile"
+      >
+        选择 AEP 文件
+      </t-button>
       <view class="file-info">
-          <text>{{fileName}}</text>
-        </view>
-    </view>
-    <view class="form-item">
-      <view class="file-upload">
-        <t-button  theme="primary" bind:tap="handleSubmit">提交</t-button>
+        <text>{{fileName}}</text>
       </view>
-    </view>
-    
-  </form>
+    </t-cell>
+    <t-cell>
+      <t-button theme="primary" bind:tap="handleSubmit">提交</t-button>
+    </t-cell>
 </view>
