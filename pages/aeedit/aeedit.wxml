@@ -1,0 +1,19 @@
+<!--pages/aeedit/aeedit.wxml-->
+<t-toast id="t-toast" />
+<video src="{{ staticUrl + item.video_path}}" controls autoplay="{{true}}" initial-time="{{0}}" id="video" class="video-class"></video>
+<text class="notes">在以下区域内进行文字的替换</text>
+<view class="input-example" wx:for="{{textlayers}}" wx:key="index" wx:for-item="composition">
+  <view wx:for="{{composition.textLayers}}" wx:key="innerIndex" wx:for-index="innerIndex" wx:for-item="layer">
+    <view class="input-example__label"> 文本{{innerIndex + 1}} </view>
+    <t-input
+      style="border: 2rpx solid black;border-radius: 12rpx;"
+      value="{{layer.textContent}}"
+      bind:change="handleInput"
+      data-composition-index="{{index}}"
+      data-layer-index="{{innerIndex}}"
+    />
+  </view>
+</view>
+<view class="button-example">
+  <t-button theme="primary" size="large" block style="width: 90vw;" bind:tap="creatVideo">立即制作</t-button>
+</view>

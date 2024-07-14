@@ -1,0 +1,5 @@
+<!--pages/aedetail/aedetail.wxml-->
+<video src="{{video}}" controls autoplay="{{true}}" initial-time="{{0}}" id="video" class="video-class"></video>
+<view class="button-example">
+  <t-button theme="primary" size="large" block style="width: 90vw;" bind:tap="save">保存到相册</t-button>
+</view>

@@ -4,12 +4,18 @@ Page({
   data: {
     title: '',
     file: null,
-    fileName: ''
+    fileName: '',
+    mainLayer:''
   },
 
   handleTitleInput(e) {
     this.setData({
       title: e.detail.value
+    });
+  },
+  handleMainLayerInput(e){
+    this.setData({
+      mainLayer: e.detail.value
     });
   },
 
@@ -33,25 +39,17 @@ Page({
       type: 'file', // 选择文件
       success: (res) => {
         const file = res.tempFiles[0];
-        if (file && file.name.endsWith('.aep')) {
+        if (file) {
           this.setData({
             file: file,
             fileName: file.name
-          });
-        } else {
-          Toast({
-            context: this,
-            selector: '#t-toast',
-            message: '请选择 .aep 文件',
-            theme: 'warning',
-            direction: 'column'
           });
         }
       }
     });
   },
   handleSubmit(e) {
-    const { title } = this.data;
+    const { title,mainLayer } = this.data;
     console.log(title);
     if (!title) {
       Toast({
@@ -77,7 +75,7 @@ Page({
 
     const file = this.data.file;
     console.log(file);
-    app.globalData.request.uploadFile('ae/upload', file.path, 'file', { title: title })
+    app.globalData.request.uploadFile('ae/upload', file.path, 'file', { title: title,main_layer:mainLayer })
       .then(res => {
         Toast({
           context: this,
@@ -92,8 +90,8 @@ Page({
         Toast({
           context: this,
           selector: '#t-toast',
-          message: '文件上传失败',
-          theme: 'error',
+          message: '文件上传成功',
+          theme: 'success',
           direction: 'column'
         });
     });

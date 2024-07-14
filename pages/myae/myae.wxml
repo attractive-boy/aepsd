@@ -1,0 +1,2 @@
+<!--pages/myae/myae.wxml-->
+<t-cell wx:for="{{ae}}" title="{{item.title}}" align="top" image="{{ staticUrl + item.video_cover}}" hover bordered="{{false}}" arrow bind:tap="todetail" data-video="{{staticUrl + item.ae_mp4_path}}" />

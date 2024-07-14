@@ -86,6 +86,11 @@ Page({
           url: '../aeupload/aeupload',
         })
         break;
+      case 'myae':
+        wx.navigateTo({
+          url: '../myae/myae',
+        })
+        break;
     }
   }
 })

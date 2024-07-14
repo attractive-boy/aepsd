@@ -3,7 +3,10 @@
     "pages/index/index",
     "pages/login/login",
     "pages/user/user",
-    "pages/aeupload/aeupload"
+    "pages/aeupload/aeupload",
+    "pages/aeedit/aeedit",
+    "pages/myae/myae",
+    "pages/aedetail/aedetail"
   ],
   "window": {
     "navigationBarTextStyle": "black",

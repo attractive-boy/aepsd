@@ -1,23 +1,17 @@
-<view class="container">
-  <t-toast id="t-toast" />
-      <t-input
-        placeholder="请输入标题"
-        value="{{title}}"
-        bind:change="handleTitleInput"
-        clearable
-      />
-    <t-cell title="选择 AEP 文件">
-      <t-button
-        theme="primary"
-        bind:tap="chooseFile"
-      >
-        选择 AEP 文件
-      </t-button>
-      <view class="file-info">
-        <text>{{fileName}}</text>
-      </view>
-    </t-cell>
-    <t-cell>
-      <t-button theme="primary" bind:tap="handleSubmit">提交</t-button>
-    </t-cell>
+<t-toast id="t-toast" />
+<t-input
+  label="视频标题"
+  placeholder="请输入标题"
+  value="{{title}}"
+  bind:change="handleTitleInput"
+/>
+<t-input
+  label="合成图层名"
+  placeholder="请输入总合成图层名"
+  value="{{mainLayer}}"
+  bind:change="handleMainLayerInput"
+/>
+<t-cell title="选择 AEP 文件" bind:tap="chooseFile" hover note="{{fileName}}" arrow />
+<view class="button-example">
+  <t-button theme="primary" size="large" block bind:tap="handleSubmit">上传</t-button>
 </view>

@@ -1,0 +1,9 @@
+/* pages/aedetail/aedetail.wxss */
+.video-class{
+  width: 100vw;
+}
+.button-example {
+  margin: 32rpx;
+  position: absolute;
+  bottom: 5rpx;
+}

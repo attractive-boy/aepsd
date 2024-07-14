@@ -1,5 +1,5 @@
 const baseUrl = 'https://120.26.241.30/api/' 
-
+const staticUrl = 'https://120.26.241.30/'
 const getJWT = () => {
   try {
     return wx.getStorageSync('jwt')
@@ -21,6 +21,7 @@ const request = (url, method, data, header = {}) => {
       url: baseUrl + url,
       method: method,
       data: data,
+      timeout:9999999,
       header: {
         'Content-Type': 'application/json',
         ...header
@@ -86,5 +87,6 @@ const uploadFile = (url, filePath, name, formData = {}, header = {}) => {
 module.exports = {
   get,
   post,
-  uploadFile
+  uploadFile,
+  staticUrl
 }
