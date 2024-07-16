@@ -4,7 +4,7 @@
     <text>{{nickName}}</text>
   </block>
   <t-cell-group theme="card" t-class="app-cell-group">
-    <t-cell title="AE上传" leftIcon="service" hover arrow bind:tap="onTap" data-cell="aeupload" />
+    <!-- <t-cell title="AE上传" leftIcon="service" hover arrow bind:tap="onTap" data-cell="aeupload" /> -->
     <!-- <t-cell title="单行标题" leftIcon="internet" hover arrow /> -->
     <t-cell title="我的合成" leftIcon="lock-on" hover arrow bind:tap="onTap" data-cell="myae" />
   </t-cell-group>
