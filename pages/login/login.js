@@ -7,6 +7,7 @@ Page({
   data: {
     userInfo: {
       avatarUrl: defaultAvatarUrl,
+      avatarBase64: '',
       nickName: '',
     },
     hasUserInfo: false,
@@ -16,8 +17,11 @@ Page({
   onChooseAvatar(e) {
     const { avatarUrl } = e.detail
     const { nickName } = this.data.userInfo
+    var avatarUrl_base64 = 'data:image/jpeg;base64,' + wx.getFileSystemManager().readFileSync(avatarUrl, 'base64')
+
     this.setData({
       "userInfo.avatarUrl": avatarUrl,
+      "userInfo.avatarBase64": avatarUrl_base64,
       hasUserInfo: nickName && avatarUrl && avatarUrl !== defaultAvatarUrl,
     })
   },
@@ -43,12 +47,13 @@ Page({
     })
   },
   login(){
+    const that = this
     // TODO: 登录
     // 将头像和名称存入本地存储
     wx.setStorageSync('userInfo', this.data.userInfo)
     wx.login({
       success: (res) => {
-        app.globalData.request.post('user' , {code: res.code})
+        app.globalData.request.post('user' , {code: res.code,avatarUrl:that.data.userInfo.avatarBase64,nickName:that.data.userInfo.nickName})
         .then(data => {
           console.log('请求成功', data)
           // 处理成功响应

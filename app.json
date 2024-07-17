@@ -6,7 +6,8 @@
     "pages/aeupload/aeupload",
     "pages/aeedit/aeedit",
     "pages/myae/myae",
-    "pages/aedetail/aedetail"
+    "pages/aedetail/aedetail",
+    "pages/psdedit/psdedit"
   ],
   "window": {
     "navigationBarTextStyle": "black",

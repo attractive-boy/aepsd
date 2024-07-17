@@ -14,6 +14,18 @@ const formatNumber = n => {
   return n[1] ? n : `0${n}`
 }
 
+const generateGridList = (childCount, columns) => {
+  const ans = []
+  for (let i = 0; i < childCount; i++) {
+    ans.push({
+      id: i,
+      sub: getRandomInt(columns) + 1,
+    })
+  }
+  return ans
+}
+
 module.exports = {
-  formatTime
+  formatTime,
+  generateGridList
 }

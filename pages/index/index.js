@@ -8,7 +8,8 @@ Page({
   data: {
     value: '',
     ae:[],
-    staticUrl:app.globalData.request.staticUrl
+    staticUrl:app.globalData.request.staticUrl,
+    psd:[]
   },
   onTabsChange(event) {
     console.log(`Change tab, tab-panel value is ${event.detail.value}.`);
@@ -28,6 +29,7 @@ Page({
       success: function (res) {
         console.log(res.data)
         that.getAes()
+        that.getPsds()
       },
       fail: function (res) {
         console.log(res.data)
@@ -53,11 +55,33 @@ Page({
           // 处理错误响应
         })
   },
+  // 获取所有的psd
+  getPsds(){
+    const that = this
+    app.globalData.request.get('psd')
+        .then(data => {
+          console.log('请求成功', data)
+          // 处理成功响应
+          that.setData({
+            psd: data.data
+          })
+        })
+        .catch(err => {
+          console.error('请求失败', err)
+          // 处理错误响应
+        })
+  },
   toEdit(e) {
     
     const item = e.currentTarget.dataset.item; // 获取点击的项
     wx.navigateTo({
       url: `../aeedit/aeedit?item=${encodeURIComponent(JSON.stringify(item))}`, // 将对象转换为字符串并编码
+    });
+  },
+  toPsdEdit(e){
+    const item = e.currentTarget.dataset.item; // 获取点击的项
+    wx.navigateTo({
+      url: `../psdedit/psdedit?item=${encodeURIComponent(JSON.stringify(item))}`, // 将对象转换为字符串并编码
     });
   },
   /**

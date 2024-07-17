@@ -3,13 +3,20 @@
 </view>
 <t-tabs defaultValue="{{0}}"  bind:change="onTabsChange" bind:click="onTabsClick">
   <t-tab-panel  label="视频" value="0" >
-    <t-grid class="block" column="{{2}}">
-      <t-grid-item wx:for="{{ae}}" wx:key="index" text="{{item.title}}" image="{{staticUrl + item.video_cover}}" t-class-image="grid-image" bind:tap="toEdit" data-item="{{item}}"/>
-    </t-grid>
+      <grid-view type="masonry" cross-axis-count="{{2}}" cross-axis-gap="{{4}}" main-axis-gap="{{4}}">
+      <view wx:for="{{ae}}" wx:key="index" bind:tap="toEdit" data-item="{{item}}">
+        <image src="{{staticUrl + item.video_cover}}" mode="widthFix" class="grid-item"/>
+        <text class="grid-item-text">{{item.title}}</text>
+      </view>
+    </grid-view>
   </t-tab-panel>
   <t-tab-panel  label="图片" value="1" >
-    <t-grid class="block" column="{{2}}">
-      <t-grid-item wx:for="{{psd}}" wx:key="index" text="{{item.title}}" image="{{staticUrl + item.video_cover}}" t-class-image="grid-image" bind:tap="toEdit" data-item="{{item}}"/>
-    </t-grid>
+    <grid-view type="masonry" cross-axis-count="{{2}}" cross-axis-gap="{{4}}" main-axis-gap="{{4}}">
+      <view wx:for="{{psd}}" wx:key="index" bind:tap="toPsdEdit" data-item="{{item}}">
+        <image src="{{staticUrl + item.img_path}}" mode="widthFix" class="grid-item"/>
+        <text class="grid-item-text">{{item.title}}</text>
+      </view>
+    </grid-view>
   </t-tab-panel>
 </t-tabs>
+<view style="height: 100rpx;"></view>

@@ -8,6 +8,7 @@ Page({
   data: {
     ae:[],
     staticUrl:app.globalData.request.staticUrl,
+    psd:[]
   },
 
   /**
@@ -21,6 +22,19 @@ Page({
       // 处理成功响应
       that.setData({
         ae: data.data
+      })
+    })
+    .catch(err => {
+      console.error('请求失败', err)
+      // 处理错误响应
+    })
+
+    app.globalData.request.get('psd/me')
+    .then(data => {
+      console.log('请求成功', data)
+      // 处理成功响应
+      that.setData({
+        psd: data.data
       })
     })
     .catch(err => {

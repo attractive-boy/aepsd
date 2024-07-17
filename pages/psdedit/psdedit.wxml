@@ -1,0 +1,17 @@
+<!--pages/aeedit/aeedit.wxml-->
+<t-toast id="t-toast" />
+<image src="{{ staticUrl + item.img_path}}" mode="widthFix" />
+<text class="notes">在以下区域内进行文字的替换</text>
+<view class="input-example" wx:for="{{textlayers}}" wx:key="index" wx:for-item="text">
+    <view class="input-example__label"> 文本{{index + 1}} </view>
+    <t-input
+      style="border: 2rpx solid black;border-radius: 12rpx;"
+      value="{{text}}"
+      bind:change="handleInput"
+      data-index="{{index}}"
+    />
+</view>
+<view class="button-example">
+  <t-button theme="primary" size="large" block style="width: 90vw;" bind:tap="creatVideo">立即制作</t-button>
+  <view style="height: 10rpx;"></view>
+</view>

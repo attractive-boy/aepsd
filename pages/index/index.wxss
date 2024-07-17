@@ -16,7 +16,12 @@
   margin-bottom: 32rpx;
 }
 
-.grid-image {
-  width: 40vw !important;
-  height: 60vw !important;
+.grid-item{
+  width: calc(50vw - 20rpx);
+  border-radius: 10rpx;
+  margin: 0 10rpx;
+}
+.grid-item-text{
+  margin-left:20rpx;
+  margin-bottom: 10rpx;
 }
