@@ -1,5 +1,5 @@
-const baseUrl = 'https://120.26.241.30/api/' 
-const staticUrl = 'https://120.26.241.30/'
+const baseUrl = 'https://gongjiangkeji.top/flask/api/' 
+const staticUrl = 'https://gongjiangkeji.top/flask/'
 const getJWT = () => {
   try {
     return wx.getStorageSync('jwt')
